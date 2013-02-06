@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Tools extends JavaPlugin{
@@ -30,8 +31,13 @@ public class Tools extends JavaPlugin{
 		if (cmd.getName().equalsIgnoreCase("test")){
 			
 			if (args.length == 1){
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.format("&0[&3%s&0]&f Test!", getDescription().getName())));
-				return true;
+				if (sender instanceof Player){
+					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.format("&0[&3%s&0]&f Test!", getDescription().getName())));
+					return true;
+				}
+				else{
+					sender.sendMessage("Players Only!");
+				}
 			}
 			else{
 				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.format("&0[&3%s&0]&4 Invalid Arguments!", getDescription().getName())));
