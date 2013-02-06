@@ -1,0 +1,8 @@
+name: Tools
+main: com.github.Endlessdays.Tools.Tools
+author: EndlessDays
+version: 1.0
+
+commands:
+  test:
+    description: Shows Plugin Test Information
